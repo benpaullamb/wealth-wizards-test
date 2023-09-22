@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
+import './index.css';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import Home from './Home';

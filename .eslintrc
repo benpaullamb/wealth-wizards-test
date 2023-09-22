@@ -19,7 +19,11 @@
     "react/prop-types": "warn",
     "react/jsx-uses-react": "warn",
     "react/jsx-closing-bracket-location": "off",
-    "linebreak-style": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "linebreak-style": "off",
+    "comma-dangle": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/control-has-associated-label": "off"
   },
   "plugins": [
     "react",
