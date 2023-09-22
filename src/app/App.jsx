@@ -1,17 +1,13 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/react';
+import { jsx } from '@emotion/react';
+import './index.css';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
+import Home from './Home';
 
 const App = ({ store }) => (
   <Provider store={store}>
-    <p
-      css={css`
-        font-size: 100px;
-      `}
-    >
-      Your app here
-    </p>
+    <Home />
   </Provider>
 );
 

@@ -15,10 +15,7 @@ module.exports = () => {
       poll: 1000,
     },
     entry: {
-      app: [
-        '@babel/polyfill',
-        path.join(__dirname, 'src/app/index.jsx'),
-      ],
+      app: ['@babel/polyfill', path.join(__dirname, 'src/app/index.jsx')],
     },
     output: {
       path: path.join(__dirname, '/dist/'),
@@ -52,12 +49,14 @@ module.exports = () => {
           use: ['babel-loader'],
           exclude: /node_modules/,
         },
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader', 'postcss-loader'],
+        },
       ],
     },
     resolve: {
-      modules: [
-        'node_modules',
-      ],
+      modules: ['node_modules'],
       alias: {},
       extensions: ['.js', '.json', '.jsx'],
     },
