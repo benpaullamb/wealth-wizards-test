@@ -26,16 +26,20 @@ const bandsOnDate = (date) => {
 
 // TODO this should do more than return the number it's given
 const slice = R.curry((floor, ceiling, num) => {
-  if (num.equals(0)) return num;
-  if (floor.equals(0)) {
-    if (num.greaterThanOrEqualTo(floor) && num.lessThanOrEqualTo(ceiling)) return num;
-    if (num.greaterThanOrEqualTo(ceiling)) return ceiling;
+  const floorDecimal = RD.decimal(floor);
+  const ceilingDecimal = RD.decimal(ceiling);
+  const numDecimal = RD.decimal(num);
+
+  if (numDecimal.equals(0)) return numDecimal;
+  if (floorDecimal.equals(0)) {
+    if (numDecimal.greaterThanOrEqualTo(floorDecimal) && numDecimal.lessThanOrEqualTo(ceilingDecimal)) return numDecimal;
+    if (numDecimal.greaterThanOrEqualTo(ceilingDecimal)) return ceilingDecimal;
   } else {
-    if (num.lessThanOrEqualTo(floor)) return RD.ZERO;
-    if (num.greaterThanOrEqualTo(floor) && num.lessThanOrEqualTo(ceiling)) return num.minus(floor);
-    if (num.greaterThan(ceiling)) return ceiling.minus(floor);
+    if (numDecimal.lessThanOrEqualTo(floorDecimal)) return RD.ZERO;
+    if (numDecimal.greaterThanOrEqualTo(floorDecimal) && numDecimal.lessThanOrEqualTo(ceilingDecimal)) return numDecimal.minus(floorDecimal);
+    if (numDecimal.greaterThan(ceilingDecimal)) return ceilingDecimal.minus(floorDecimal);
   }
-  return num;
+  return numDecimal;
 });
 
 const calcForBand = R.curry(
