@@ -17,7 +17,8 @@
     "no-nested-ternary": "off",
     "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
     "react/prop-types": "warn",
-    "react/jsx-uses-react": "warn"
+    "react/jsx-uses-react": "warn",
+    "linebreak-style": "off"
   },
   "plugins": [
     "react",
